@@ -1,0 +1,26 @@
+logging:
+  level:
+    org:
+      springframework:
+        jdbc:
+          core: TRACE
+    jdbc:
+      connection: TRACE
+
+server:
+  servlet:
+    context-path: /api/v1
+
+spring:
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5432/dms
+    username: admin
+    password: Password1!
+    hikari:
+      connectionTestQuery: SELECT 1
+      connectionTimeout: 10000
+      maximumPoolSize: 5
+      minimumIdle: 1
+
+mybatis:
+  config-location: classpath:/config/mybatis-config.xml
