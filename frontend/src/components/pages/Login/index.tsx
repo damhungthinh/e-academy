@@ -35,11 +35,13 @@ export const LoginPage: FunctionComponent = () => {
 
   const isLoading = useSelector((state: RootState) => state.loading.global)
 
-
   // eslint-disable-next-line
   const [_, setCookie, removeCookie] = useCookies([AUTH_KEY])
 
-  const handleFormSubmit = useCallback((value: LoginProps) => dispatch.auth.login(value), [dispatch])
+  const handleFormSubmit = useCallback(
+    (value: LoginProps) => dispatch.auth.login(value),
+    [dispatch]
+  )
 
   useEffect(() => {
     if (!!token) {
@@ -60,7 +62,7 @@ export const LoginPage: FunctionComponent = () => {
     dispatch.auth.clearError()
     // eslint-disable-next-line
   }, [dispatch, token])
-  console.log(process.env.REACT_APP_API_BASE_PATH)
+
   return (
     <div className={styledModule`root`}>
       <Card className={styledModule`login-wrapper`}>
@@ -88,7 +90,7 @@ export const LoginPage: FunctionComponent = () => {
                 prefix={
                   <UserOutlined className={styledModule`form-item-icon`} />
                 }
-                placeholder="Your username"
+                placeholder='Your username'
                 name='account'
                 disabled={isLoading}
               />
@@ -104,7 +106,7 @@ export const LoginPage: FunctionComponent = () => {
                 prefix={
                   <LockOutlined className={styledModule`form-item-icon`} />
                 }
-                placeholder="Your password"
+                placeholder='Your password'
                 name='password'
                 disabled={isLoading}
               />
